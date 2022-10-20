@@ -21,10 +21,11 @@ phases:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 --self-contained false Api.csproj      
-
+      - dotnet publish -c Release -r linux-x64  -o ./build_output safe-sign-api/Safe-Sign.WebAPI/Safe-Sign.WebAPI.csproj --self-contained false 
+      
 artifacts:
   files:
     - '**/*'
-  base-directory: ./bin/Release/netcoreapp3.1/linux-x64/publish/
+  base-directory: ./build_output
   discard-paths: no
+
