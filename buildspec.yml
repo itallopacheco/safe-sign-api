@@ -7,8 +7,8 @@ env:
 
 phases:
     install:
-    runtime-versions:
-        dotnet: latest
+        runtime-versions:
+            dotnet: latest
 
     pre_build:
         commands:
