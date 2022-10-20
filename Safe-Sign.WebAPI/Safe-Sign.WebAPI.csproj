@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Safe_Sign.WebAPI</RootNamespace>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.8" />
+    <PackageReference Include="NLog" Version="5.0.4" />
+    <PackageReference Include="NLog.Schema" Version="5.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Safe-Sign.DAL\Safe-Sign.DAL.csproj" />
+    <ProjectReference Include="..\Safe-Sign.DTO\Safe-Sign.DTO.csproj" />
+    <ProjectReference Include="..\Safe-Sign.Repository\Safe-Sign.Repository.csproj" />
+    <ProjectReference Include="..\Safe-Sign.Util\Safe-Sign.Util.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logs\Credentials\" />
+    <Folder Include="Logs\Marker\" />
+    <Folder Include="Logs\User\" />
+    <Folder Include="Logs\Theme\" />
+    <Folder Include="Logs\SGP\" />
+    <Folder Include="Logs\Profile\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\SGPFiles\" />
+  </ItemGroup>
+
+</Project>
