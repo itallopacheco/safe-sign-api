@@ -15,17 +15,9 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build -c Release
-      
-  post_build:
-    commands:
-      - echo Publish started on `date`
-      # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64  -o ./build_output safe-sign-api/Safe-Sign.WebAPI/Safe-Sign.WebAPI.csproj --self-contained false 
-      
+      - dotnet publish -c release -o ./build_output safe-sign-api/Safe-Sign.WebAPI.csproj
 artifacts:
   files:
-    - '**/*'
-  base-directory: ./build_output
+    - 'safe-sign-api/build_output/**/*'
   discard-paths: no
 
